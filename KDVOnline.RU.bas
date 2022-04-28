@@ -131,6 +131,20 @@ Sub category_update_item(category As String, item As IHTMLElement)
     ws.Cells(pos, 6).Value = is_new
     ws.Cells(pos, 7).Value = is_promo
     
+    ' Добавление примечания
+    Dim cell As Range
+    Set cell = ws.Cells(pos, 3) ' выделяем колонку для изображения
+    ' cell.ClearComments ' Очистка примечания
+    If cell.comment Is Nothing Then ' Если примечание создано, то не обновляем картикну
+        Dim comment As comment
+        Set comment = cell.AddComment ' Создание примечания
+        Image_url = item.getElementsByTagName("img")(0).src ' получение прямой ссылки на изображение
+        comment.Shape.Fill.UserPicture (Image_url)
+        comment.Shape.Height = 220 ' Устанавливаем размеры окна примечания
+        comment.Shape.Width = 220
+    End If
+    
+    ' Добавление изображения в ячейку
 '    Dim cell As Range
 '    Set cell = ws.Cells(pos, 8) ' выделяем колонку для изображения
 '    Image_url = item.getElementsByTagName("img")(0).src ' получение прямой ссылки на изображение
