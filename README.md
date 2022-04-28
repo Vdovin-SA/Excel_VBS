@@ -1,4 +1,5 @@
 # Excel_VBS
+URL: https://docs.microsoft.com/ru-ru/office/vba/api/overview/excel/object-model
 
 ## KDVOnline.RU.bas
 Парсер сайта https://kdvonline.ru 
